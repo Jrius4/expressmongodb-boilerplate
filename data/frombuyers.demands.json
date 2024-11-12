@@ -1,0 +1,163 @@
+[{
+  "_id": "672f6a1ca9409f1dda2f9023",
+  "buyerId": "6578235da6b5a7a8d3cb52b3",
+  "produce": "Maize",
+  "quantity": 1258,
+  "availability": "available",
+  "unit": "kgs",
+  "frequency": "1 Week",
+  "isCertified": "certified",
+  "transportation": "yes",
+  "country_code": "CI",
+  "country": "Cote D'Ivoire",
+  "location": [
+    "Tiassale, Côte d'Ivoire",
+    "Toumodi, Côte d'Ivoire"
+  ],
+  "createdAt": "2024-11-09T13:56:44.723Z",
+  "updatedAt": "2024-11-09T13:56:44.723Z",
+  "__v": 0
+},
+{
+  "_id": "672f4beda9409f1dda2f8166",
+  "buyerId": "6578235da6b5a7a8d3cb52b3",
+  "produce": "Pomegranate",
+  "quantity": 215,
+  "availability": "available",
+  "unit": "tonnes",
+  "frequency": "1 Week",
+  "isCertified": "certified",
+  "transportation": "yes",
+  "country_code": "",
+  "country": "",
+  "location": [
+    "Red Bay, The Bahamas"
+  ],
+  "createdAt": "2024-11-09T11:47:57.821Z",
+  "updatedAt": "2024-11-09T11:47:57.821Z",
+  "__v": 0
+},
+{
+  "_id": "672f102f52525690626453cf",
+  "buyerId": "6578235da6b5a7a8d3cb52b3",
+  "produce": "Pomegranate",
+  "quantity": 258,
+  "availability": "available",
+  "unit": "kgs",
+  "frequency": "1 Week",
+  "isCertified": "certified",
+  "transportation": "yes",
+  "country": "NL",
+  "location": [
+    "Ysselsteyn, Netherlands"
+  ],
+  "createdAt": "2024-11-09T07:33:03.166Z",
+  "updatedAt": "2024-11-09T07:33:03.166Z",
+  "__v": 0
+},
+{
+  "_id": "672e4725525256906264402e",
+  "buyerId": "6578235da6b5a7a8d3cb52b3",
+  "produce": "Bananas",
+  "quantity": 2156,
+  "availability": "available",
+  "unit": "kgs",
+  "frequency": "2 weeks",
+  "isCertified": "certified",
+  "transportation": "yes",
+  "country": "CD",
+  "location": [
+    "Riasi, Democratic Republic of the Congo"
+  ],
+  "createdAt": "2024-11-08T17:15:17.053Z",
+  "updatedAt": "2024-11-08T17:15:17.053Z",
+  "__v": 0
+},
+{
+  "_id": "672e3d0f5252569062643ea3",
+  "buyerId": "6578235da6b5a7a8d3cb52b3",
+  "produce": "Grapes",
+  "quantity": 568,
+  "availability": "available",
+  "unit": "kgs",
+  "frequency": "1 Week",
+  "isCertified": "certified",
+  "transportation": "yes",
+  "country": "NL",
+  "location": [
+    "Helmond, Netherlands"
+  ],
+  "createdAt": "2024-11-08T16:32:15.590Z",
+  "updatedAt": "2024-11-08T16:32:15.590Z",
+  "__v": 0
+},
+{
+  "_id": "672e39855252569062643d8c",
+  "buyerId": "6578235da6b5a7a8d3cb52b3",
+  "produce": "Maize",
+  "quantity": 5622,
+  "availability": "available",
+  "unit": "tonnes",
+  "frequency": "1 Week",
+  "isCertified": "un certified",
+  "transportation": "yes",
+  "country": "RW",
+  "location": [
+    "Kimironko, Rwanda"
+  ],
+  "createdAt": "2024-11-08T16:17:09.984Z",
+  "updatedAt": "2024-11-08T16:17:09.984Z",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67337a18a3fcc383a5166159"
+  },
+  "buyerId": "12345",
+  "produce": "Tomatoes",
+  "quantity": 1000,
+  "availability": "Immediate",
+  "unit": "kg",
+  "frequency": "Weekly",
+  "isCertified": "Yes",
+  "transportation": "Refrigerated",
+  "country_code": "US",
+  "country": "United States",
+  "location": [
+    "California",
+    "New York"
+  ],
+  "createdAt": {
+    "$date": "2024-11-12T15:54:00.409Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-12T15:54:00.409Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67337a5f473726381201f8ec"
+  },
+  "buyerId": "12345",
+  "produce": "Tomatoes",
+  "quantity": 1000,
+  "availability": "Immediate",
+  "unit": "kg",
+  "frequency": "Weekly",
+  "isCertified": "Yes",
+  "transportation": "Refrigerated",
+  "country_code": "US",
+  "country": "United States",
+  "location": [
+    "California",
+    "New York"
+  ],
+  "createdAt": {
+    "$date": "2024-11-12T15:55:11.104Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-12T15:55:11.104Z"
+  },
+  "__v": 0
+}]
