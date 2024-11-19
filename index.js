@@ -4,8 +4,7 @@ const BuyerDemand = require('./demands.model');
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/frombuyers', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+
 }).then(() => {
     console.log('Connected to MongoDB');
 }).catch((err) => {
@@ -17,6 +16,8 @@ mongoose.connect('mongodb://localhost:27017/frombuyers', {
 // demandController.aggregateBuyerDemand("Maize");
 
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 const PORT = 3000;
 
 // Define the route for the aggregation
@@ -47,9 +48,69 @@ app.get('/api/buyer-demand/aggregate', async (req, res) => {
     }
 });
 
+app.get('/api/buyer-demand/aggregate-paginate', async (req, res) => {
+    const page = parseInt(req.query.page) || 1;
+    const search = req.query.search || "";
+    const limit = parseInt(req.query.limit) || 15;
+    const skip = (page - 1) * limit;
+
+    try {
+        const items = await BuyerDemand.aggregate([
+            {
+                $match: {
+                    ...(search && { "produce": { $regex: search, $options: "i" } })
+                }
+            },
+            {
+                $group: {
+                    _id: { unit: "$unit", produce: "$produce" },
+                    totalQuantity: { $sum: "$quantity" }
+                }
+            },
+            {
+                $sort: { "_id.produce": 1 }
+            },
+            { $skip: skip },
+            { $limit: limit }
+        ]);
+
+
+        const totalItems = await BuyerDemand.aggregate([
+            {
+                $match: {
+                    ...(search && { "produce": { $regex: search, $options: "i" } })
+                }
+            },
+            {
+                $group: {
+                    _id: {
+                        produce: "$produce",
+                        unit: "$unit",
+                    },
+                    totalQuantity: { $sum: "$quantity" }
+                }
+            },
+            { $count: "totalCount" }
+        ]);
+
+        const totalPages = Math.ceil((totalItems.length > 0 ? (totalItems[0].totalCount) : 1) / limit);
+        // Check if it's the last page
+        const isLastPage = page >= totalPages;
+        res.status(200).json({
+            data: items,
+            totalPages,
+            totalItems,
+            isLastPage,
+            pageSize: limit
+        }); // Send the results as JSON response
+    } catch (err) {
+        console.error('Error in aggregation:', err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
 
 app.post('/api/buyer-demand/save', async (req, res, next) => {
-    console.log({ res, res })
     const { buyerId, produce, quantity,
         availability, unit, frequency, isCertified, transportation, country_code, country, location } = req.body; // Get produce type from query parameter
 
@@ -145,6 +206,8 @@ app.get('/api/buyer-demand/notify', async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 });
+
+console.log('Abs: ', Math.ceil(7 / 7));
 
 // Start the server
 app.listen(PORT, () => {
